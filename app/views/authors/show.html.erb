@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @author %>
+
+<div>
+  <%= link_to "Edit this author", edit_author_path(@author) %> |
+  <%= link_to "Back to authors", authors_path %>
+  <%= button_to "Destroy this author", @author, method: :delete %>
+</div>
+
+<ul>
+  <% if @author.posts.any? %>
+    <h2>Posts by <%= @author.name %></h2>
+    <% @author.posts.each do |post| %>
+      <li>
+        <%= link_to post.title, post %>
+      </li>
+    <% end %>
+  <% else %>
+    <h2>No post for <%= @author.name %></h2>
+  <% end %>
+</ul>
